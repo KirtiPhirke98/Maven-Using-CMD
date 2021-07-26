@@ -12,7 +12,7 @@ node {
             readProp = readProperties file:'sonar-project.properties'
             echo """APP NAME-${readProp['sonar.organization']}"""
              echo """APP version-${readProp['sonar.projectKey']}"""
-             echo """APP end-${readProp['sonar.sources']}"""
+             
     }
    
 
