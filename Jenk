@@ -9,9 +9,10 @@ node {
 
     
     stage ('Read Property File')  {
-            readProp = readProperties file:'my-app/application.properties'
-            echo """APP NAME-${readProp['deploy.app.name']}"""
-             echo """APP version-${readProp['version']}"""
+            readProp = readProperties file:'sonar-project.properties'
+            echo """APP NAME-${readProp['sonar.organization']}"""
+             echo """APP version-${readProp['sonar.projectKey']}"""
+             echo """APP end-${readProp['sonar.sources']}"""
     }
    
 
