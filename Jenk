@@ -1,0 +1,18 @@
+def readProp;
+node {
+
+        '
+    stage ("checkout")  {
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/KirtiPhirke98/Maven-Using-CMD.git']]])
+       echo "Checkout succesfully"
+    }
+
+    
+    stage ('Read Property File')  {
+            readProp = readProperties file:'my-app/application.properties'
+            echo """APP NAME-${readProp['deploy.app.name']}"""
+             echo """APP version-${readProp['version']}"""
+    }
+   
+
+      }
